@@ -9,7 +9,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const loading = useSelector(signInLoading);
 
-  const signInHandler = values => {
+  const signInHandler = () => {
     dispatch(signInAction.request({}));
   };
 
