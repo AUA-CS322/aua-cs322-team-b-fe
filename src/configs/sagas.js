@@ -7,9 +7,7 @@ import fetchEntity from './fetch-entity';
  * @param actionName
  * @param cancelActionName
  * @param api
- * @param load function* (fetch, data) {
- *               yield call(fetch, data);
- *             }
+ * @param load function* (fetch, data) {  yield call(fetch, data); }
  * @param take { takeLatest, takeEvery }
  * @param toast { text: 'show alert message', type: 'success' }
  * @returns {Function}
