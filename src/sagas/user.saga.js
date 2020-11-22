@@ -10,7 +10,6 @@ export const watchSignIn = {
   *load(fetch, data) {
     yield call(fetch, { ...data });
     const response = yield select(signInData);
-    console.log(response, 'response');
     const actionError = yield select(signInError);
     if (response && response.success && !actionError.isError) {
       return;
