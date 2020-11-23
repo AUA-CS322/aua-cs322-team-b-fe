@@ -17,7 +17,7 @@ export default () => {
     response => response,
     error => {
       const errorResponse = error.response;
-      switch (errorResponse.status) {
+      switch (errorResponse && errorResponse.status) {
         case NOT_AUTHORIZED:
           emptyTokenState();
           store.dispatch(logOutAction.actions.success({ params: null }, null));
