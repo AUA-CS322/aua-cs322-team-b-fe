@@ -1,14 +1,17 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
-import SignInForm from './SignInForm'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-
-configure({ adapter: new Adapter() });
+import SignInForm from './SignInForm';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 describe('SignInForm redner', () => {
-
-	it('renders without error', () => {
-		const wrapper = shallow(<SignInForm />);
-		expect(wrapper.length).toEqual(1);
-	});		
+  if (typeof window !== 'undefined') {
+    const matchMediaPolyfill = function matchMediaPolyfill() {
+      return { matches: false, addListener() {}, removeListener() {} };
+    };
+    window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  }
+  it('renders without errors', () => {
+    render(<SignInForm />);
+    expect(screen.getByTestId('password')).toBeInTheDocument();
+    expect(screen.getByTestId('username')).toBeInTheDocument();
+  });
 });
