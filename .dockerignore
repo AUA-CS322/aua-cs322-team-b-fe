@@ -1,0 +1,10 @@
+.vscode
+.git
+.gitignore
+.env.*
+.eslintrc
+.prettierrc
+
+README.md
+src
+node_modules
