@@ -14,6 +14,7 @@ const SignInForm = ({ loading, onFinish }) => {
   return (
     <Form onFinish={onFinish} form={form}>
       <Form.Item
+        data-testid="username"
         name="username"
         rules={[{ required: true, message: 'Username/Email is required!' }]}>
         <Input prefix={<UserOutlined />} placeholder="Username/Email" />
@@ -22,6 +23,7 @@ const SignInForm = ({ loading, onFinish }) => {
         name="password"
         rules={[{ required: true, message: 'Password is required!' }]}>
         <Input
+          data-testid="password"
           prefix={<LockOutlined />}
           type="password"
           placeholder="Password"
@@ -31,6 +33,7 @@ const SignInForm = ({ loading, onFinish }) => {
         {() => (
           <Button
             type="primary"
+            data-testid="signin-button"
             shape="round"
             htmlType="submit"
             loading={loading}
