@@ -33,6 +33,7 @@ const SignInForm = ({ loading, onFinish }) => {
         {() => (
           <Button
             type="primary"
+            data-testid="signin-button"
             shape="round"
             htmlType="submit"
             loading={loading}
