@@ -1,0 +1,35 @@
+import React from 'react';
+import { Row, Col, Avatar, Typography } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+
+const { Title, Text } = Typography;
+
+const detailList = [
+  'Name',
+  'Position',
+  'Department',
+  'Mamager',
+  'Location',
+  'Email',
+  'Phone',
+];
+
+const UserDetails = ({ avatar, ...props }) => {
+  return (
+    <Row justify="center" gutter={[0, 10]}>
+      <Col>
+        <Avatar shape="square" size={100} icon={<UserOutlined />} />
+      </Col>
+      {detailList.map(detail => (
+        <Col span={24} key={detail}>
+          <Row justify="center">
+            <Text strong>{detail}:&nbsp;</Text>
+            <Text>{props[detail.toLowerCase()] || 'N/A'}</Text>
+          </Row>
+        </Col>
+      ))}
+    </Row>
+  );
+};
+
+export default UserDetails;
