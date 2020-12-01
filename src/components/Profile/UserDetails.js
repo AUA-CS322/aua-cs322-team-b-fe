@@ -2,23 +2,28 @@ import React from 'react';
 import { Row, Col, Avatar, Typography } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 const detailList = [
   'Name',
   'Position',
   'Department',
-  'Mamager',
+  'Manager',
   'Location',
   'Email',
   'Phone',
 ];
 
-const UserDetails = ({ avatar, ...props }) => {
+const UserDetails = ({ photoUrl, ...props }) => {
   return (
     <Row justify="center" gutter={[0, 10]}>
       <Col>
-        <Avatar shape="square" size={100} icon={<UserOutlined />} />
+        <Avatar
+          shape="square"
+          size={100}
+          icon={<UserOutlined />}
+          src={photoUrl}
+        />
       </Col>
       {detailList.map(detail => (
         <Col span={24} key={detail}>

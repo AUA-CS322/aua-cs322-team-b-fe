@@ -24,3 +24,15 @@ export const logOutAction = makeRequestAction('LOG_OUT', {
     };
   },
 });
+
+export const getUserAction = makeRequestAction('GET_USER', {
+  onSuccess(params, response) {
+    return {
+      response: {
+        entities: {
+          user: response,
+        },
+      },
+    };
+  },
+});
