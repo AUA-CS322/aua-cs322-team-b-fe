@@ -7,7 +7,7 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . /app/
-
+ARG REACT_APP_API_ROOT=https://team-b-server-ns2svqdtya-ew.a.run.app/
 RUN yarn build
 
 FROM nginx:alpine
