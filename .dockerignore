@@ -4,7 +4,9 @@
 .env.*
 .eslintrc
 .prettierrc
+.dockerignore
 
 README.md
-src
 node_modules
+.idea
+Dockerfile
