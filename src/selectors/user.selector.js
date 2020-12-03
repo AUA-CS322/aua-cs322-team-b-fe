@@ -7,6 +7,7 @@ import {
   signInAction,
   getUserAction,
   searchUserAction,
+  getUserChartAction,
 } from '../actions/user.action';
 
 export const userIsAuth = createSelector(getEntities, () => {
@@ -43,11 +44,20 @@ export const getUserLoading = createLoadingSelector(getUserAction.actionName)();
 */
 export const searchUserResult = createSelector(
   getEntities,
-  entities => entities.userSearch?.data || [],
+  entities => entities.userSearch || [],
 );
-export const searchUserError = createErrorSelector(
-  searchUserAction.actionName,
-)();
 export const searchUserLoading = createLoadingSelector(
   searchUserAction.actionName,
+)();
+
+/*
+  User chart
+*/
+export const getUserChart = createSelector(
+  getEntities,
+  entities => entities.chart || [],
+);
+
+export const getUserChartLoading = createLoadingSelector(
+  getUserChartAction.actionName,
 )();

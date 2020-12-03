@@ -2,8 +2,14 @@ import {
   signInAction,
   getUserAction,
   searchUserAction,
+  getUserChartAction,
 } from '../actions/user.action';
-import { signInApi, getUserApi, searchUserApi } from '../services/user.service';
+import {
+  signInApi,
+  getUserApi,
+  searchUserApi,
+  getUserChartApi,
+} from '../services/user.service';
 import {
   signInData,
   signInError,
@@ -44,4 +50,9 @@ export const watchGetUser = {
 export const watchSearchUser = {
   ...searchUserAction,
   api: searchUserApi,
+};
+
+export const watchGetUserChart = {
+  ...getUserChartAction,
+  api: getUserChartApi,
 };

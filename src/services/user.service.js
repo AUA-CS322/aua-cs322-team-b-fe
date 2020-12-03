@@ -1,6 +1,7 @@
 import client from './client';
 import userDetailsMock from './mocks/userDetails.mock.json';
 import searchResultMock from './mocks/searchResult.mock.json';
+import userChartMock from './mocks/chart.mock.json';
 
 /*
   User Authentication
@@ -45,4 +46,24 @@ export const searchUserApi = ({ params }, cancelToken) => {
   });
   //TODO: remove the upper chunck of code when the server endpoint is ready
   return client().get('/users/search', { params, cancelToken });
+};
+
+/*
+  User Chart
+*/
+export const getUserChartApi = ({ params }) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () =>
+        resolve({
+          data: {
+            success: true,
+            data: userChartMock,
+          },
+        }),
+      1000,
+    );
+  });
+  //TODO: remove the upper chunck of code when the server endpoint is ready
+  return client().get('/users/chart', { params, cancelToken });
 };
