@@ -10,6 +10,7 @@ import UserDetails from '../components/Profile/UserDetails';
 import Chart from '../components/Organization/Chart';
 import UserSearch from '../components/Organization/UserSearch';
 import Logo from '../components/shared/Logo';
+import debounce from 'debounce';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -20,12 +21,12 @@ const Profile = () => {
     dispatch(getUserAction.request());
   }, []);
 
-  const handleSearch = value => {
+  const handleSearch = debounce(value => {
     if (!value || value.length < 3) {
       return;
     }
     dispatch(searchUserAction.request({ query: value }));
-  };
+  }, 200);
 
   const handleSelect = id => {
     dispatch(getUserAction.request({ id }));
