@@ -1,5 +1,6 @@
 import client from './client';
 import userDetailsMock from './mocks/userDetails.mock.json';
+import searchResultMock from './mocks/searchResult.mock.json';
 
 /*
   User Authentication
@@ -24,4 +25,24 @@ export const getUserApi = ({ params: { id } }) => {
   });
   //TODO: remove the upper chunck of code when the server endpoint is ready
   return client().get(`/users/${id}`);
+};
+
+/*
+  Search User
+*/
+export const searchUserApi = ({ params }, cancelToken) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () =>
+        resolve({
+          data: {
+            success: true,
+            data: searchResultMock,
+          },
+        }),
+      1000,
+    );
+  });
+  //TODO: remove the upper chunck of code when the server endpoint is ready
+  return client().get('/users/search', { params, cancelToken });
 };

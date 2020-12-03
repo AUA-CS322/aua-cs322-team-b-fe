@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAction } from '../actions/user.action';
+import { getUserAction, searchUserAction } from '../actions/user.action';
 import { getUserLoading, getUser } from '../selectors/user.selector';
 import Container from '../components/shared/Container';
 import { Col } from 'antd';
@@ -20,7 +20,16 @@ const Profile = () => {
     dispatch(getUserAction.request());
   }, []);
 
-  const onSearch = value => console.log(value);
+  const handleSearch = value => {
+    if (!value || value.length < 3) {
+      return;
+    }
+    dispatch(searchUserAction.request({ query: value }));
+  };
+
+  const handleSelect = id => {
+    dispatch(getUserAction.request({ id }));
+  };
 
   return (
     <Container top={30}>
@@ -29,7 +38,7 @@ const Profile = () => {
           <Logo />
         </Col>
         <Col span={10}>
-          <UserSearch onSearch={onSearch} />
+          <UserSearch onSearch={handleSearch} onSelect={handleSelect} />
         </Col>
       </Row>
 

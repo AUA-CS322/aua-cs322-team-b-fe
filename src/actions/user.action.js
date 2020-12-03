@@ -36,3 +36,15 @@ export const getUserAction = makeRequestAction('GET_USER', {
     };
   },
 });
+
+export const searchUserAction = makeRequestAction('SEARCH_USER', {
+  onSuccess(params, response) {
+    return {
+      response: {
+        entities: {
+          userSearch: response,
+        },
+      },
+    };
+  },
+});

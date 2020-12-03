@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Input, AutoComplete } from 'antd';
+import {
+  searchUserResult,
+  searchUserLoading,
+} from '../../selectors/user.selector';
 
-const searchResult = query => {
-  // simulate the search result
-  return new Array(Math.floor(Math.random() * 6))
-    .join('.')
-    .split('.')
-    .map((item, idx) => {
-      const category = `${query}${idx}`;
-      return {
-        value: category,
-        label: <div>Result of search "{query}"</div>,
-      };
-    });
-};
+const UserSearch = ({ onSearch, onSelect }) => {
+  const [query, setQuery] = useState('');
+  const searchResult = useSelector(searchUserResult);
+  const loading = useSelector(searchUserLoading);
 
-const UserSearch = ({ onSearch }) => {
-  const [options, setOptions] = useState([]);
-
-  const handleSearch = value => {
-    onSearch(value);
-    setOptions(value ? searchResult(value) : []);
+  const handleSelect = (value, options) => {
+    onSelect(value);
+    setQuery(options.label);
   };
 
-  const onSelect = value => {
-    // TODO: implement on select functinality
-    console.log('onSelect', value);
+  const handleSearch = value => {
+    setQuery(value);
+    onSearch(value);
   };
 
   return (
@@ -34,10 +27,16 @@ const UserSearch = ({ onSearch }) => {
       style={{
         width: '100%',
       }}
-      options={options}
-      onSelect={onSelect}
-      onSearch={handleSearch}>
-      <Input.Search placeholder="type name to start search" allowClear />
+      options={searchResult}
+      onSelect={handleSelect}
+      onSearch={handleSearch}
+      value={query}>
+      <Input.Search
+        placeholder="type name to start search"
+        allowClear
+        loading={loading}
+        enterButton
+      />
     </AutoComplete>
   );
 };

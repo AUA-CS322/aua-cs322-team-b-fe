@@ -1,5 +1,9 @@
-import { signInAction, getUserAction } from '../actions/user.action';
-import { signInApi, getUserApi } from '../services/user.service';
+import {
+  signInAction,
+  getUserAction,
+  searchUserAction,
+} from '../actions/user.action';
+import { signInApi, getUserApi, searchUserApi } from '../services/user.service';
 import {
   signInData,
   signInError,
@@ -35,4 +39,9 @@ export const watchGetUser = {
     }
     showMessage(response && response.message, 'error');
   },
+};
+
+export const watchSearchUser = {
+  ...searchUserAction,
+  api: searchUserApi,
 };
