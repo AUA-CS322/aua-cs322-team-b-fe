@@ -65,5 +65,5 @@ export const getUserChartApi = ({ params }) => {
     );
   });
   //TODO: remove the upper chunck of code when the server endpoint is ready
-  return client().get('/users/chart', { params, cancelToken });
+  return client().get('/users/chart', { params });
 };
