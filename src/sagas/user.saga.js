@@ -30,7 +30,6 @@ export const watchGetUser = {
     yield call(fetch, { ...data });
     const response = yield select(getUserData);
     const actionError = yield select(getUserError);
-    console.log(response);
     if (response && response.success && !actionError.isError) {
       return;
     }
