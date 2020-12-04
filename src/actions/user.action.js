@@ -24,3 +24,39 @@ export const logOutAction = makeRequestAction('LOG_OUT', {
     };
   },
 });
+
+export const getUserAction = makeRequestAction('GET_USER', {
+  onSuccess(params, response) {
+    return {
+      response: {
+        entities: {
+          user: response,
+        },
+      },
+    };
+  },
+});
+
+export const searchUserAction = makeRequestAction('SEARCH_USER', {
+  onSuccess(params, response) {
+    return {
+      response: {
+        entities: {
+          userSearch: response?.data || [],
+        },
+      },
+    };
+  },
+});
+
+export const getUserChartAction = makeRequestAction('GET_USER_CHART', {
+  onSuccess(params, response) {
+    return {
+      response: {
+        entities: {
+          chart: response?.data | [],
+        },
+      },
+    };
+  },
+});

@@ -5,7 +5,7 @@ import { signInLoading } from '../selectors/user.selector';
 import { Row, Col } from 'antd';
 import Container from '../components/shared/Container';
 import SignInForm from '../components/Authorization/SignInForm';
-import Logo from '../images/aua-logo.png';
+import Logo from '../components/shared/Logo';
 
 const layout = {
   xs: { span: 22, offset: 1 },
@@ -25,7 +25,7 @@ const SignIn = () => {
     <Container top={60}>
       <Row gutter={[0, 60]}>
         <Col {...layout}>
-          <img width="100%" src={Logo} />
+          <Logo />
         </Col>
         <Col {...layout}>
           <SignInForm onFinish={signInHandler} loading={loading} />
