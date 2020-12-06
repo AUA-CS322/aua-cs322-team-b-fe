@@ -3,7 +3,12 @@ import createErrorSelector from './create-error-selector';
 import createLoadingSelector from './create-loading-selector';
 import getEntities from './entities';
 import { loadState } from '../configs/local-storage';
-import { signInAction } from '../actions/user.action';
+import {
+  signInAction,
+  getUserAction,
+  searchUserAction,
+  getUserChartAction,
+} from '../actions/user.action';
 
 export const userIsAuth = createSelector(getEntities, () => {
   const state = loadState();
@@ -19,3 +24,40 @@ export const signInData = createSelector(
 );
 export const signInError = createErrorSelector(signInAction.actionName)();
 export const signInLoading = createLoadingSelector(signInAction.actionName)();
+
+/*
+  Get user
+*/
+export const getUserData = createSelector(
+  getEntities,
+  entities => entities.user,
+);
+export const getUser = createSelector(
+  getEntities,
+  entities => entities.user?.data || {},
+);
+export const getUserError = createErrorSelector(getUserAction.actionName)();
+export const getUserLoading = createLoadingSelector(getUserAction.actionName)();
+
+/*
+  Search user
+*/
+export const searchUserResult = createSelector(
+  getEntities,
+  entities => entities.userSearch || [],
+);
+export const searchUserLoading = createLoadingSelector(
+  searchUserAction.actionName,
+)();
+
+/*
+  User chart
+*/
+export const getUserChart = createSelector(
+  getEntities,
+  entities => entities.chart || [],
+);
+
+export const getUserChartLoading = createLoadingSelector(
+  getUserChartAction.actionName,
+)();
