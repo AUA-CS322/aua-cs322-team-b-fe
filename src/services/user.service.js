@@ -32,20 +32,7 @@ export const getUserApi = ({ params: { id } }) => {
   Search User
 */
 export const searchUserApi = ({ params }, cancelToken) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(
-      () =>
-        resolve({
-          data: {
-            success: true,
-            data: searchResultMock,
-          },
-        }),
-      1000,
-    );
-  });
-  //TODO: remove the upper chunck of code when the server endpoint is ready
-  return client().get('/users/search', { params, cancelToken });
+  return client().get(`/users/search/${params.query}`, { cancelToken });
 };
 
 /*
