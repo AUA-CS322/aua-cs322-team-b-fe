@@ -23,6 +23,7 @@ const UserDetails = ({ photoUrl, ...props }) => {
           size={100}
           icon={<UserOutlined />}
           src={photoUrl}
+          data-testid="avatar"
         />
       </Col>
       {detailList.map(detail => (

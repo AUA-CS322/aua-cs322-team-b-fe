@@ -10,6 +10,8 @@ import {
   getUser,
   getUserChart,
   getUserChartLoading,
+  searchUserResult,
+  searchUserLoading,
 } from '../selectors/user.selector';
 import Container from '../components/shared/Container';
 import { Col } from 'antd';
@@ -28,6 +30,8 @@ const Profile = () => {
   const selectedUser = useSelector(getUser);
   const chartData = useSelector(getUserChart);
   const chartLoading = useSelector(getUserChartLoading);
+  const searchResult = useSelector(searchUserResult);
+  const searchLoading = useSelector(searchUserLoading);
 
   useEffect(() => {
     dispatch(getUserAction.request());
@@ -58,10 +62,14 @@ const Profile = () => {
           <Logo />
         </Col>
         <Col span={10}>
-          <UserSearch onSearch={handleSearch} onSelect={handleSelect} />
+          <UserSearch
+            result={searchResult}
+            loading={searchLoading}
+            onSearch={handleSearch}
+            onSelect={handleSelect}
+          />
         </Col>
       </Row>
-
       {loading || chartLoading ? (
         <MainLoader />
       ) : (
@@ -70,12 +78,15 @@ const Profile = () => {
             <UserDetails {...selectedUser} />
           </Col>
           <Col span={10}>
-            <Chart data={chartData} userId={selectedUserId} />
+            <Chart
+              data={chartData}
+              userId={selectedUserId}
+              onSelect={handleSelect}
+            />
           </Col>
         </Row>
       )}
     </Container>
   );
 };
-
 export default Profile;

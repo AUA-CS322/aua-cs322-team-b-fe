@@ -54,7 +54,7 @@ export const getUserChartAction = makeRequestAction('GET_USER_CHART', {
     return {
       response: {
         entities: {
-          chart: response?.data | [],
+          chart: response?.data || [],
         },
       },
     };

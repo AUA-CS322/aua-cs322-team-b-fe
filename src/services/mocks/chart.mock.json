@@ -1,6 +1,51 @@
 [
   {
-    "value": "94a7335f-2181-4811-9a06-f53ae949a98a",
-    "label": "Full Name, Position, Department, Location"
+    "nodeId": 1,
+    "parentNodeId": null,
+    "fullName": "FName LName",
+    "position": "President",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 2,
+    "parentNodeId": 1,
+    "fullName": "FName LName",
+    "position": "Vice President",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 3,
+    "parentNodeId": 1,
+    "fullName": "FName2 LName2",
+    "position": "Vice President 2",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 4,
+    "parentNodeId": 2,
+    "fullName": "FName3 LName3",
+    "position": "Vice President 3",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 5,
+    "parentNodeId": 2,
+    "fullName": "FName3 LName3",
+    "position": "Vice President 3",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 6,
+    "parentNodeId": 3,
+    "fullName": "FName3 LName3",
+    "position": "Vice President 3",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
+  },
+  {
+    "nodeId": 7,
+    "parentNodeId": 4,
+    "fullName": "FName3 LName3",
+    "position": "Vice President 3",
+    "photoUrl": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_female_woman_avatar-512.png"
   }
 ]
