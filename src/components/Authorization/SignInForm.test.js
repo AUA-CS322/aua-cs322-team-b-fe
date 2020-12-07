@@ -12,7 +12,7 @@ describe('SignInForm tests', () => {
     }
   });
 
-  it('reders form with username, password and button', () => {
+  it('renders form with username, password and button', () => {
     // Arrange & Act
     render(<SignInForm />);
 
