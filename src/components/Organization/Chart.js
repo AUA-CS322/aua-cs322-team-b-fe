@@ -19,12 +19,20 @@ const Chart = ({ data, userId, onSelect }) => {
         blue: 150,
         alpha: 1,
       },
-      backgroundColor: {
-        red: 85,
-        green: 160,
-        blue: 252,
-        alpha: 1,
-      },
+      backgroundColor:
+        userId === item.nodeId
+          ? {
+              red: 40,
+              green: 85,
+              blue: 135,
+              alpha: 1,
+            }
+          : {
+              red: 85,
+              green: 160,
+              blue: 252,
+              alpha: 1,
+            },
       width: 200,
       height: 200,
       nodeImage: {
