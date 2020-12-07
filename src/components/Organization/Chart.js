@@ -46,22 +46,13 @@ const Chart = ({ data, userId, onSelect }) => {
       connectorLineWidth: 2,
       dashArray: '',
       expanded: userId === item.nodeId || userId === item.parentNodeId,
-      template: `<div>
-                 <div style="text-align:center;
-                              margin-top:120px;
+      template: `<div style="display:inline-block;width:100%;text-align:center">
+                 <div style="margin-top:120px;
                               font-size:16px;
                          "><b>${item.fullName}</b></div>
-                 <div style="text-align:center;
-                              margin-top:3px;
+                 <div style="margin-top:3px;
                               font-size:14px;
                          ">${item.position}</div>
-                 <div style="text-align:center;
-                             margin-top:15px;
-                             font-size:13px;
-                             position:absolute;
-                             bottom:5px;
-                            ">
-                 </div>
               </div>`,
     }));
 
