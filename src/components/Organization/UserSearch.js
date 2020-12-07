@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Input, AutoComplete } from 'antd';
-import {
-  searchUserResult,
-  searchUserLoading,
-} from '../../selectors/user.selector';
 
-const UserSearch = ({ onSearch, onSelect }) => {
+const UserSearch = ({ onSearch, onSelect, result, loading }) => {
   const [query, setQuery] = useState('');
-  const searchResult = useSelector(searchUserResult);
-  const loading = useSelector(searchUserLoading);
 
   const handleSelect = (value, options) => {
     onSelect(value);
@@ -27,11 +20,12 @@ const UserSearch = ({ onSearch, onSelect }) => {
       style={{
         width: '100%',
       }}
-      options={searchResult}
+      options={result}
       onSelect={handleSelect}
       onSearch={handleSearch}
       value={query}>
       <Input.Search
+        data-testid="user-search"
         placeholder="type name to start search"
         allowClear
         loading={loading}
