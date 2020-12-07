@@ -4,6 +4,7 @@ import TreeChart from 'd3-org-chart';
 const Chart = ({ data, userId, onSelect }) => {
   const d3Container = useRef(null);
   let chart = null;
+
   useLayoutEffect(() => {
     const mainData = data.map(item => ({
       nodeId: item.nodeId,
@@ -62,6 +63,7 @@ const Chart = ({ data, userId, onSelect }) => {
                  </div>
               </div>`,
     }));
+
     if (mainData?.length && d3Container.current) {
       if (!chart) {
         chart = new TreeChart();
@@ -70,7 +72,7 @@ const Chart = ({ data, userId, onSelect }) => {
         .backgroundColor('#fff')
         .container(d3Container.current)
         .data(mainData)
-        .svgWidth(500)
+        .svgWidth(700)
         .initialZoom(0.4)
         .onNodeClick(currentNode => {
           onSelect(currentNode);
@@ -78,6 +80,7 @@ const Chart = ({ data, userId, onSelect }) => {
         .render();
     }
   }, [data, userId, d3Container.current]);
+
   return (
     <Row justify="center">
       <div ref={d3Container} />

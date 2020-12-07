@@ -20,6 +20,7 @@ import Chart from '../components/Organization/Chart';
 import UserSearch from '../components/Organization/UserSearch';
 import Logo from '../components/shared/Logo';
 import debounce from 'debounce';
+
 const Profile = () => {
   const [selectedUserId, setSelectedUserId] = useState();
   const dispatch = useDispatch();
@@ -27,24 +28,29 @@ const Profile = () => {
   const selectedUser = useSelector(getUser);
   const chartData = useSelector(getUserChart);
   const chartLoading = useSelector(getUserChartLoading);
+
   useEffect(() => {
     dispatch(getUserAction.request());
     dispatch(getUserChartAction.request());
   }, []);
+
   useEffect(() => {
     if (selectedUser?.id) {
       setSelectedUserId(selectedUser.id);
     }
   }, [selectedUser]);
+
   const handleSearch = debounce(value => {
     if (!value || value.length < 3) {
       return;
     }
     dispatch(searchUserAction.request({ query: value }));
   }, 200);
+
   const handleSelect = id => {
     dispatch(getUserAction.request({ id }));
   };
+
   return (
     <Container top={30}>
       <Row justify="space-between" align="middle">
