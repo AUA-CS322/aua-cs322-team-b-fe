@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { Row } from 'antd';
 import TreeChart from 'd3-org-chart';
+
 const Chart = ({ data, userId, onSelect }) => {
   const d3Container = useRef(null);
   let chart = null;
@@ -83,7 +84,7 @@ const Chart = ({ data, userId, onSelect }) => {
 
   return (
     <Row justify="center">
-      <div ref={d3Container} />
+      <div data-testid="user-chart" ref={d3Container} />
     </Row>
   );
 };
