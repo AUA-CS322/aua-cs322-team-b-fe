@@ -61,7 +61,6 @@ const Profile = () => {
           <UserSearch onSearch={handleSearch} onSelect={handleSelect} />
         </Col>
       </Row>
-
       {loading || chartLoading ? (
         <MainLoader />
       ) : (
@@ -70,12 +69,15 @@ const Profile = () => {
             <UserDetails {...selectedUser} />
           </Col>
           <Col span={10}>
-            <Chart data={chartData} userId={selectedUserId} />
+            <Chart
+              data={chartData}
+              userId={selectedUserId}
+              onSelect={handleSelect}
+            />
           </Col>
         </Row>
       )}
     </Container>
   );
 };
-
 export default Profile;
